@@ -1,0 +1,15 @@
+plugin.tx_googlefun {
+	view {
+		templateRootPath = EXT:googlefun/Resources/Private/Templates/
+		partialRootPath  = EXT:googlefun/Resources/Private/Partials/
+		layoutRootPath   = EXT:googlefun/Resources/Private/Layouts/
+	}
+	persistence {
+		storagePid = {$plugin.tx_googlefun.persistence.storagePid}
+	}
+
+}
+
+
+
+
