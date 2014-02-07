@@ -12,4 +12,20 @@ plugin.tx_googlefun {
 
 
 
+page {
+    includeCSS {
+        
+        tx_googlefun_1            = EXT:googlefun/Resources/Public/Stylesheets/map.css
+        tx_googlefun_1.title      = main_stylesheet
+        tx_googlefuns_css_1.media = screen
 
+    }
+    	
+
+    includeJS {
+    
+     #  tx_googlefun_2 = EXT:googlefun/Resources/Public/Scripts/jquery-1.8.0.min.js
+        tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/borders.js
+        tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/map.js
+    }
+}
