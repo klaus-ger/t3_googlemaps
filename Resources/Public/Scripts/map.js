@@ -43,16 +43,6 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
     
     renderRegions();
-    //var test =  loadMarker();
-    
-//    google.maps.event.addDomListener(window, 'load', initialize);
-//
-//    google.maps.event.addListener(map,'mouseover',function(e){
-//        $('html, body').stop();
-//    });
-//    google.maps.event.addListener(map,'dblclick',function(e){
-//        e.stop();
-//    })
 
 }
 
@@ -62,6 +52,7 @@ function initialize() {
 function loadScript() {
     var script = document.createElement("script");
     script.type = "text/javascript";
+    script.src = "http:///maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&callback=initialize";
     document.body.appendChild(script);
 }
 
