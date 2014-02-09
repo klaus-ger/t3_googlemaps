@@ -25,7 +25,8 @@ page {
     includeJS {
     
      #  tx_googlefun_2 = EXT:googlefun/Resources/Public/Scripts/jquery-1.8.0.min.js
-        tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/borders.js
-        tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/map.js
+        tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/regions.js
+        tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/borders.js
+        tx_googlefun_5 = EXT:googlefun/Resources/Public/Scripts/map.js
     }
 }
