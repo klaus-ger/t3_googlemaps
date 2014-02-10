@@ -14,7 +14,7 @@ var styles = [{
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "visibility": "on"
+                "visibility": "off"
             },
             {
                 "color": "#000000"
@@ -41,8 +41,8 @@ function initialize() {
         disableDoubleClickZoom: true,
         
         center: new google.maps.LatLng(51.645294,10.369262),
-        zoom: 2,
-        maxZoom: 12,
+        zoom: 6,
+        maxZoom: 8,
         minZoom: 6,
         mapTypeId: google.maps.MapTypeId.Road,
         styles: styles,
@@ -54,8 +54,12 @@ function initialize() {
 
     map = new google.maps.Map(document.getElementById("map_canvas"),mapOptions);
     
+    renderCities();
+    renderOneDigitMarkers();
+    renderTwoDigitMarkers();
     renderMainRegions();
     renderRegions();
+    
     
     //******************************************************************************
     // Change Zoom Level Function
@@ -66,24 +70,40 @@ function initialize() {
         // ZOOM LEVEL 6: show one digit PLZ area ********************************
         if (zoomLevel == 6) {
             //remove two digit polys
-            for (i = 0; i<countrypolys.length; i++){
-                countrypolys[i].setVisible(false);
+            for (i = 0; i<regionpolys.length; i++){
+                regionpolys[i].setVisible(false);
             }
             //set one digti polys
             for (i = 0; i<mainregionpolys.length; i++){
                 mainregionpolys[i].setVisible(true);
+            }
+            //set one-digit-areas labels
+            for (i = 0; i<one_digit_label.length; i++){
+                one_digit_label[i].setVisible(true);
+            }
+            //remove two-digit-areas labels
+            for (i = 0; i<two_digit_label.length; i++){
+                two_digit_label[i].setVisible(false);
             }
         }
         
         // ZOOM LEVEL 7: show two digit PLZ area ********************************
         if (zoomLevel == 7) {
             //remove two digit polys
-            for (i = 0; i<countrypolys.length; i++){
-                countrypolys[i].setVisible(true);
+            for (i = 0; i<regionpolys.length; i++){
+                regionpolys[i].setVisible(true);
             }
             //set one digti polys
             for (i = 0; i<mainregionpolys.length; i++){
                 mainregionpolys[i].setVisible(false);
+            }
+            //remove one-digit-areas labels
+            for (i = 0; i<one_digit_label.length; i++){
+                one_digit_label[i].setVisible(false);
+            }
+            //set two-digit-areas labels
+            for (i = 0; i<two_digit_label.length; i++){
+                two_digit_label[i].setVisible(true);
             }
         }
 
