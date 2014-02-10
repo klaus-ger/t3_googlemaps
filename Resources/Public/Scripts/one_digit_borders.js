@@ -23,7 +23,6 @@ function renderMainRegions(regionsWithItems){
         
 
         google.maps.event.addListener(singlecountry, 'mouseover', function(event) {
-            //console.log('continent');
             this.setOptions({
                 strokeColor: "#928e88"
             });
@@ -50,22 +49,11 @@ function renderMainRegions(regionsWithItems){
                 
         //Klick Function
         google.maps.event.addListener(singlecountry, 'click', function(event) {
-            
             map.setZoom(7);
-        //zoom4();
-                    
         });
     
+    }); //End each - loop through the one-digit-array
 
-        
-
-       
-    //console.log(val);
-    }); //End each - loop through the country array
-    //remove region polys
-//    for (i = 0; i<mainregionpolys.length; i++){
-//        mainregionpolys[i].setVisible(false);
-//    }
 } 
 
 
