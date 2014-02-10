@@ -27,6 +27,7 @@ page {
      #  tx_googlefun_2 = EXT:googlefun/Resources/Public/Scripts/jquery-1.8.0.min.js
         tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/one_digit_borders.js
         tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/two_digit_borders.js
-        tx_googlefun_5 = EXT:googlefun/Resources/Public/Scripts/map.js
+        tx_googlefun_5 = EXT:googlefun/Resources/Public/Scripts/static_marker.js
+        tx_googlefun_6 = EXT:googlefun/Resources/Public/Scripts/map.js
     }
 }
