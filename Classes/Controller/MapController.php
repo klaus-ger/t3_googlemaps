@@ -5,7 +5,7 @@ namespace T3developer\Googlefun\Controller;
 /* * *************************************************************
  *  Copyright notice
  *
- *  (c) 2013 
+ *  (c) 2013 Klaus Heuer | t3-developer.com
  *  All rights reserved
  *
  *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -28,13 +28,17 @@ namespace T3developer\Googlefun\Controller;
 /**
  *
  *
- * @package t3gists
+ * @package googlefun
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
 class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
-
+    /**
+     * @var \T3developer\Googlefun\Domain\Repository\RegionRepository 
+     * @inject  
+     */
+    protected $regionRepository;
 
     /**
      * Initializes the current action 
@@ -48,8 +52,26 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
      * Index Action: Shows the map
      */
     public function indexAction() {
-
-
+       
+    }
+    /**
+     * Find Marker by Ajax Action
+     */
+    public function findMarkerByAjaxAction() {
+        if($this->request->hasArgument('storagePid')){
+            $storagePid = $this->request->getArgument('storagePid');
+        }
+        $oneDigitRegions = $this->regionRepository->findByRegionType(1, $storagePid);
+        $twoDigitRegions = $this->regionRepository->findByRegionType(2, $storagePid);
+        
+        foreach($oneDigitRegions as $oneDR){
+            $marker['mainregions'][$oneDR->getUid()]['plz']  = $oneDR->getRegionPlz();
+            $marker['mainregions'][$oneDR->getUid()]['long'] = $oneDR->getRegionLong();
+            $marker['mainregions'][$oneDR->getUid()]['lat']  = $oneDR->getRegionLat();
+        }
+        
+        
+        return json_encode($marker) ;
     }
 
 }
