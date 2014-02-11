@@ -6,18 +6,18 @@ if (!defined ('TYPO3_MODE'))  die ('Access denied.');
 	'googlefun',
 	array(
 		
-                'Map'   => 'index'
-		
-               
-	    ),
+                'Map'   =>  ' index
+                            , findMarkerByAjax'
+	 ),
 
     array ( 
-                'Map'   => 'index'
+                'Map'   =>  ' index
+                            , findMarkerByAjax'
             )
 );
 
 
-
+$TYPO3_CONF_VARS['FE']['eID_include']['ajaxDispatcher'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('googlefun').'Classes/EIDispatcher.php';
 
 
 ?>
