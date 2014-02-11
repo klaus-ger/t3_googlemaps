@@ -1,7 +1,7 @@
 plugin.tx_googlefun {
 
     persistence {
-        # cat=plugin.tx_t3gists//a; type=string; label=Default storage PID
+        # cat=plugin.tx_googlefun//a; type=string; label=Default storage PID
 	storagePid = 
     }
 }
