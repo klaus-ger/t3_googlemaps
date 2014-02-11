@@ -7,27 +7,35 @@ plugin.tx_googlefun {
 	persistence {
 		storagePid = {$plugin.tx_googlefun.persistence.storagePid}
 	}
+        settings {
+		storagePid = {$plugin.tx_googlefun.persistence.storagePid}
+	}
 
 }
+
 
 
 
 page {
     includeCSS {
         
-        tx_googlefun_1            = EXT:googlefun/Resources/Public/Stylesheets/map.css
-        tx_googlefun_1.title      = main_stylesheet
-        tx_googlefuns_css_1.media = screen
+        tx_googlefun_0            = EXT:googlefun/Resources/Public/Stylesheets/map.css
+        tx_googlefun_0.title      = main_stylesheet
+        tx_googlefuns_css_0.media = screen
 
     }
     	
 
     includeJS {
     
-     #  tx_googlefun_2 = EXT:googlefun/Resources/Public/Scripts/jquery-1.8.0.min.js
-        tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/one_digit_borders.js
-        tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/two_digit_borders.js
-        tx_googlefun_5 = EXT:googlefun/Resources/Public/Scripts/static_marker.js
-        tx_googlefun_6 = EXT:googlefun/Resources/Public/Scripts/map.js
+     #  tx_googlefun_1 = EXT:googlefun/Resources/Public/Scripts/jquery-1.8.0.min.js
+        tx_googlefun_2 = http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false
+        tx_googlefun_2.external = 1
+        tx_googlefun_3 = EXT:googlefun/Resources/Public/Scripts/markerlabel.js
+        tx_googlefun_4 = EXT:googlefun/Resources/Public/Scripts/one_digit_borders.js
+        tx_googlefun_5 = EXT:googlefun/Resources/Public/Scripts/two_digit_borders.js
+        tx_googlefun_6 = EXT:googlefun/Resources/Public/Scripts/static_marker.js
+        
+        tx_googlefun_7 = EXT:googlefun/Resources/Public/Scripts/map.js
     }
 }
