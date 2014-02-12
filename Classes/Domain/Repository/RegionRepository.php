@@ -28,7 +28,7 @@ namespace T3developer\Googlefun\Domain\Repository;
 /**
  *
  *
- * @package googlefin
+ * @package googlefun
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
@@ -43,11 +43,12 @@ class RegionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
     public function findByRegionType($region, $storagePid) {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
+        
         $query->matching(
-            $query->logicalAnd(
-                $query->equals('pid', $storagePid),
+           // $query->logicalAnd(
+                //$query->equals('pid', $storagePid),
                 $query->equals('regionType',$region)
-            )
+           // )
         );
         return $query->execute();
     

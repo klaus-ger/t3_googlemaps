@@ -3,13 +3,13 @@
 $TCA['tx_googlefun_domain_model_region'] = array(
     'ctrl' => $TCA['tx_googlefun_domain_model_region']['ctrl'],
     'interface' => array(
-        'showRecordFieldList' => '    region_plz
+        'showRecordFieldList' => 'region_plz
                                     , region_type
                                     , region_long
                                     , region_lat'
     ),
     'types' => array(
-        '1' => array('showitem' => '  region_plz
+        '1' => array('showitem' => 'region_plz
                                      , region_type
                                      , region_long
                                      , region_lat
@@ -41,7 +41,7 @@ $TCA['tx_googlefun_domain_model_region'] = array(
                 'items' => array(
                     array('', 0),
                 ),
-                'foreign_table' => 'tx_t3gists_domain_model_gists',
+                'foreign_table' => 'tx_googlefun_domain_model_region',
                 'foreign_table_where' => 'AND tx_googlefun_domain_model_region.uid=###REC_FIELD_l18n_parent### AND tx_googlefun_domain_model_region.sys_language_uid IN (-1,0)',
             )
         ),
@@ -64,15 +64,6 @@ $TCA['tx_googlefun_domain_model_region'] = array(
                 'type' => 'check'
             )
         ),
-        'crdate' => array(
-            'exclude' => 0,
-            'label' => 'crdate',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim',
-            )
-        ),
         'region_plz' => array(
             'exclude' => 0,
             'label' => 'region_plz',
@@ -84,10 +75,10 @@ $TCA['tx_googlefun_domain_model_region'] = array(
         ),
         'region_type' => array(
             'exclude' => 0,
-            'label' => 'Date',
+            'label' => 'Type',
             'config' => array(
-                'type' => 'text',
-                'size' => 30,
+                'type' => 'input',
+                'size' => 5,
             )
         ),
 
@@ -102,7 +93,7 @@ $TCA['tx_googlefun_domain_model_region'] = array(
         
         'region_lat' => array(
             'exclude' => 0,
-            'label' => 'gist_code',
+            'label' => 'region_lat',
             'config' => array(
                 'type' => 'input',
                 'size' => 100,
