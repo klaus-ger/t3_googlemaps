@@ -1,5 +1,6 @@
 var map;
-
+var one_digit_marker = [];
+var two_digit_marker = [];
 var styles = [{
     "stylers": [
     {
@@ -100,6 +101,14 @@ function initialize() {
             for (i = 0; i<two_digit_label.length; i++){
                 two_digit_label[i].setVisible(false);
             }
+            //set one-digit-marker 
+            for (i = 0; i<one_digit_marker.length; i++){
+                one_digit_marker[i].setVisible(true);
+            }
+            //remove two-digit-marker 
+            for (i = 0; i<two_digit_marker.length; i++){
+                two_digit_marker[i].setVisible(false);
+            }
         }
         
         // ZOOM LEVEL 7: show two digit PLZ area ********************************
@@ -119,6 +128,14 @@ function initialize() {
             //set two-digit-areas labels
             for (i = 0; i<two_digit_label.length; i++){
                 two_digit_label[i].setVisible(true);
+            }
+            //remove one-digit-marker 
+            for (i = 0; i<one_digit_marker.length; i++){
+                one_digit_marker[i].setVisible(false);
+            }
+            //set two-digit-marker 
+            for (i = 0; i<two_digit_marker.length; i++){
+                two_digit_marker[i].setVisible(true);
             }
         }
 
@@ -168,67 +185,61 @@ function loadMarker() {
         dataType: "json",
  
         success: function(result) {
-            //console.log(result);
+            console.log(result);
             
             //result small
-//            var marker5 = new MarkerWithLabel({
-//                position: new google.maps.LatLng(51.073,12.719), 
-//                map: map,
-//                draggable: false,
-//                raiseOnDrag: false, 
-//                labelContent: "1112",
-//                labelAnchor: new google.maps.Point(14, 28),
-//                labelClass: "labels",         // the CSS class for the label
-//                labelStyle: {
-//                    opacity: 0.75
-//                },
-//                icon: {
-//                    url: 'typo3conf/ext/googlefun/Resources/Public/Images/static_marker/result.png',
-//                    size: new google.maps.Size(37, 37),
-//                    origin: new google.maps.Point(0, 0)
-//                },
-//                labelInBackground: false,
-//                marker: MarkerWithLabel
-//            });
+
     
-//            var marker5 = new MarkerWithLabel({
-//                position: new google.maps.LatLng(51.073,12.719), 
-//                map: map,
-//                draggable: false,
-//                raiseOnDrag: false, 
-//                labelContent: "1112",
-//                labelAnchor: new google.maps.Point(20, 45),
-//                labelClass: "labels_big",         // the CSS class for the label
-//                labelStyle: {
-//                    opacity: 0.75
-//                },
-//                icon: {
-//                    url: 'typo3conf/ext/googlefun/Resources/Public/Images/static_marker/result1.png',
-//                    size: new google.maps.Size(67, 67),
-//                    origin: new google.maps.Point(0, 0)
-//                },
-//                labelInBackground: false,
-//                marker: MarkerWithLabel
-//            });
             
+            //one-digit-marker
+            var markerImage = new google.maps.MarkerImage('typo3conf/ext/googlefun/Resources/Public/Images/static_marker/result1.png',
+                new google.maps.Size(67, 67),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(33, 33));
+                
             $.each(result.mainregions, function(key, value) {
-                //                marker = new google.maps.Marker({
-                //                    icon: {
-                //                        url: 'typo3conf/ext/googlefun/Resources/Public/Images/static_marker/'+value[0] + '.gif',
-                //                        size: new google.maps.Size(28, 16),
-                //                        origin: new google.maps.Point(0,0),
-                //                        anchor: new google.maps.Point(8, 16)
-                //                    },
-                //                    map: map,
-                //                    position: new google.maps.LatLng(value[1], value[2]),
-                //                    visible: false,
-                //                    id: 0,
-                //                    name: 0,
-                //                    title: 'PLZ Region' + value[0],
-                //                    clickable : false
-                //                });
-                //two_digit_label.push(marker);
-                console.log(value);
+                var marker = new MarkerWithLabel({
+                    position: new google.maps.LatLng(value.long,value.lat), 
+                    map: map,
+                    draggable: false,
+                    raiseOnDrag: false, 
+                    labelContent: value.items,
+                    labelAnchor: new google.maps.Point(18, 10),
+                    labelClass: "labels_big",         // the CSS class for the label
+                    labelStyle: {
+                        opacity: 1
+                    },
+                    icon: markerImage,
+                    labelInBackground: false,
+                    marker: MarkerWithLabel
+                });
+                one_digit_marker.push(marker);
+            });
+            
+            //two-digit-marker
+            var markerImageSmall = new google.maps.MarkerImage('typo3conf/ext/googlefun/Resources/Public/Images/static_marker/result.png',
+                new google.maps.Size(37, 37),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(18, 18));
+                
+            $.each(result.regions, function(key, res) {
+                var marker = new MarkerWithLabel({
+                    position: new google.maps.LatLng(res.long,res.lat), 
+                    map: map,
+                    visible: false,
+                    draggable: false,
+                    raiseOnDrag: false, 
+                    labelContent: res.items,
+                    labelAnchor: new google.maps.Point(7, 10),
+                    labelClass: "labels",         // the CSS class for the label
+                    labelStyle: {
+                        opacity: 1
+                    },
+                    icon: markerImageSmall,
+                    labelInBackground: false,
+                    marker: MarkerWithLabel
+                });
+                two_digit_marker.push(marker);
             });
         },
         error: function(error) {
