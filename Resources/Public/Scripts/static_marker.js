@@ -402,6 +402,9 @@ function renderCities(){
         var plz_09 = ['09', 50.74870858964259, 13.09910543283511];
         twoDigitKabelArray.push(plz_09);
         
+        var plz_14= ['14', 52.24910169254956, 12.81499141130798];
+        twoDigitKabelArray.push(plz_14);
+        
         var plz_15= ['15', 52.17096602091073, 13.93718030841418];
         twoDigitKabelArray.push(plz_15);
         
@@ -528,7 +531,113 @@ function renderCities(){
         var plz_59= ['59', 51.53712185647304, 8.133595801640666];
         twoDigitKabelArray.push(plz_59);
         
-//        var plz_60= ['60', ];
-//        twoDigitKabelArray.push(plz_60);
+        var plz_61= ['61', 50.3154667010633, 8.74349292941265];
+        twoDigitKabelArray.push(plz_61);
+        
+        var plz_63= ['63', 50.20892916012757, 9.217924908704555];
+        twoDigitKabelArray.push(plz_63);
+        
+        var plz_64= ['64', 49.79800268116364, 8.691896522081334];
+        twoDigitKabelArray.push(plz_64);
+        
+        var plz_65= ['65', 50.0910843348648, 8.268963022189661];
+        twoDigitKabelArray.push(plz_65);
+        
+        var plz_66= ['66', 49.38423333333334, 7.003423206506194];
+        twoDigitKabelArray.push(plz_66);
+        
+        var plz_67= ['67', 49.51408055555556, 7.899046418330249];
+        twoDigitKabelArray.push(plz_67);
+        
+        var plz_68= ['68', 49.53327531878156, 8.508614695134696];
+        twoDigitKabelArray.push(plz_68);
+        
+        var plz_69= ['69', 49.49748425584738, 8.801429172575601];
+        twoDigitKabelArray.push(plz_69);
+        
+        var plz_70= ['70', 48.79611691563501, 9.175407425497434];
+        twoDigitKabelArray.push(plz_70);
+        
+        var plz_71= ['71', 48.96480016919868, 9.40155877794589];
+        twoDigitKabelArray.push(plz_71);
+        
+        var plz_72= ['72', 48.37338090683543, 8.869555128380393];
+        twoDigitKabelArray.push(plz_72);
+        
+        var plz_73= ['73', 48.76486619449043, 9.682134023430253];
+        twoDigitKabelArray.push(plz_73);
+        
+        var plz_74= ['74', 49.26127801971764, 9.284226619671458];
+        twoDigitKabelArray.push(plz_74);
+        
+        var plz_75= ['75', 48.95291058049574, 8.706640907865539];
+        twoDigitKabelArray.push(plz_75);
+        
+        var plz_76= ['76', 49.08591280543924, 8.28684698666639];
+        twoDigitKabelArray.push(plz_76);
+        
+        var plz_77= ['77', 48.53074022060257, 8.001930518246954];
+        twoDigitKabelArray.push(plz_77);
+        
+        var plz_78= ['78', 48.03252189132581, 8.560295542489245];
+        twoDigitKabelArray.push(plz_78);
+        
+        var plz_79= ['79', 47.89048968513213, 7.889598883516462];
+        twoDigitKabelArray.push(plz_79);
+        
+        var plz_82= ['82', 47.90978062277129, 11.2833765497013];
+        twoDigitKabelArray.push(plz_82);
+        
+        var plz_83= ['83', 47.76530617899989, 11.89142507677598];
+        twoDigitKabelArray.push(plz_83);
+        
+        var plz_84= ['84', 48.45304664958083, 12.36824047884389];
+        twoDigitKabelArray.push(plz_84);
+        
+        var plz_85= ['85', 48.41782814449137, 11.54346141948756];
+        twoDigitKabelArray.push(plz_85);
+        
+        var plz_86= ['86', 48.30461320299106, 10.82192452849035];
+        twoDigitKabelArray.push(plz_86);
+        
+        var plz_87= ['87', 47.81329467981197, 10.37136383101449];
+        twoDigitKabelArray.push(plz_87);
+        
+        var plz_88= ['88', 47.95040123242767, 9.755893058444594];
+        twoDigitKabelArray.push(plz_88);
+        
+        var plz_89= ['89', 48.53174073672787, 10.16266762434346];
+        twoDigitKabelArray.push(plz_89);
+        
+        var plz_90= ['90', 49.41614089374031, 10.8873399767377];
+        twoDigitKabelArray.push(plz_90);
+        
+        var plz_91= ['91', 49.20708836063489, 10.49070562598108];
+        twoDigitKabelArray.push(plz_91);
+        
+        var plz_92= ['92', 49.56030930355509, 11.99371029604953];
+        twoDigitKabelArray.push(plz_92);
+        
+        var plz_93= ['93', 49.08815604694531, 12.28654781856289];
+        twoDigitKabelArray.push(plz_93);
+        
+        var plz_94= ['94', 48.84176086463577, 12.98440147638025];
+        twoDigitKabelArray.push(plz_94);
+        
+        var plz_95= ['95', 50.11745487232479, 11.78912592446337];
+        twoDigitKabelArray.push(plz_95);
+        
+        var plz_96= ['96', 50.18948873772017, 11.042574444678];
+        twoDigitKabelArray.push(plz_96);
+        
+        var plz_97= ['97', 50.0320371251749, 9.91305486119556];
+        twoDigitKabelArray.push(plz_97);
+        
+        var plz_98= ['98', 50.59373928280902, 10.48957806455649];
+        twoDigitKabelArray.push(plz_98);
+        
+        var plz_99= ['99', 51.19635036551744, 10.68759440550145];
+        twoDigitKabelArray.push(plz_99);
+        
 
     };
