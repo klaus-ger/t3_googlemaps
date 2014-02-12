@@ -24,14 +24,13 @@ $TCA['tx_googlefun_domain_model_item'] = array(
         'label' => 'gfun_plz',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'dividers2tabs' => TRUE,
         'versioningWS' => 2,
         'versioning_followPages' => TRUE,
         'origUid' => 't3_origuid',
         'languageField' => 'sys_language_uid',
-        'transOrigPointerField' => 'l10n_parent',
-        'transOrigDiffSourceField' => 'l10n_diffsource',
+        'transOrigPointerField' => 'l18n_parent',
+        'transOrigDiffSourceField' => 'l18n_diffsource',
         'delete' => 'deleted',
         'enablecolumns' => array(
             'disabled' => 'hidden',
@@ -42,12 +41,11 @@ $TCA['tx_googlefun_domain_model_item'] = array(
     ),
 );
 
-//Region Table
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_googlefun_domain_model_region', 'Map Regions');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_googlefun_domain_model_region', 'Region');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_googlefun_domain_model_region');
 $TCA['tx_googlefun_domain_model_region'] = array(
     'ctrl' => array(
-        'title' => 'Map Regions',
+        'title' => 'Regions',
         'label' => 'region_plz',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -67,4 +65,6 @@ $TCA['tx_googlefun_domain_model_region'] = array(
         'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tableicon.gif'
     ),
 );
+
+
 ?>
