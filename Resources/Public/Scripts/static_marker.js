@@ -31,7 +31,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(53.23388232422666, 13.05583878171186),
+        position: new google.maps.LatLng(53.486372, 12.784411),
         visible: true,
         id: 0,
         name: 0,
@@ -49,7 +49,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(53.14580514820239, 9.753652442184803),
+        position: new google.maps.LatLng(53.139849, 9.277113),
         visible: true,
         id: 0,
         name: 0,
@@ -67,7 +67,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(51.81664918223654, 10.09517955349016),
+        position: new google.maps.LatLng(51.042, 9.644),
         visible: true,
         id: 0,
         name: 0,
@@ -85,7 +85,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(52.04791286887819, 7.398669146113324),
+        position: new google.maps.LatLng(51.727, 7.221),
         visible: true,
         id: 0,
         name: 0,
@@ -103,7 +103,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(50.40198050166594, 7.391776982028356),
+        position: new google.maps.LatLng(51.026, 8.029),
         visible: true,
         id: 0,
         name: 0,
@@ -453,7 +453,7 @@ function renderCities(){
         var plz_31= ['31', 52.11450237297176, 9.367468294070756];
         twoDigitKabelArray.push(plz_31);
         
-        var plz_32= ['32', 52.10964467358964, 8.779260616464368];
+        var plz_32= ['32', 51.994, 8.904];
         twoDigitKabelArray.push(plz_32);
         
         var plz_33= ['33', 51.688499132167, 8.720199353144425];
@@ -477,10 +477,10 @@ function renderCities(){
         var plz_39= ['39', 52.33689541347066, 11.61270408424434];
         twoDigitKabelArray.push(plz_39);
 
-        var plz_41= ['41', 51.10877348516722, 6.373804571265516];
+        var plz_41= ['41', 51.102, 6.490];
         twoDigitKabelArray.push(plz_41);
         
-        var plz_42= ['42', 51.16647077002577, 7.14111600792021];
+        var plz_42= ['42', 51.236, 7.113];
         twoDigitKabelArray.push(plz_42);
         
         var plz_44= ['44', 51.52377574771042, 7.351268231843213];

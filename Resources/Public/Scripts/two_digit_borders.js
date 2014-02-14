@@ -4,21 +4,27 @@ var regionpolys = [];
 var activeregion = [];
 
 function renderRegions(regionsWithItems){  
+    console.log(one_digit_active);
     
     loadRegionPolgons();
     $.each(region_borders, function(key, value) {
-      
-        // set the country polgon
+       
+       reg = key.charAt(7);
+       //Set fill color depending on active region
+       var color =  '#e1dacd';
+       if(reg == one_digit_active) {color = '#A3E2B8'};
+       
+       // set the country polgon
         var singlecountry = value;
         singlecountry = new google.maps.Polygon({
             paths: singlecountry,
             strokeColor: '#928e88',
             strokeWeight: 1,
-            fillColor: '#e1dacd',
+            fillColor: color,
             fillOpacity: 0.2
         });
         singlecountry.setMap(map);
-        singlecountry.setVisible(false);
+        singlecountry.setVisible(true);
         
         regionpolys.push(singlecountry);
         
@@ -28,7 +34,7 @@ function renderRegions(regionsWithItems){
                 strokeColor: "#928e88"
             });
             this.setOptions({
-                fillColor: "#e1dacd"
+                fillColor: color
             });
             this.setOptions({
                 fillOpacity: 0.7
@@ -41,7 +47,7 @@ function renderRegions(regionsWithItems){
                 strokeColor: "#928e88"
             });
             this.setOptions({
-                fillColor: "#e1dacd"
+                fillColor: color
             });
             this.setOptions({
                 fillOpacity: 0.2
@@ -50,9 +56,10 @@ function renderRegions(regionsWithItems){
                 
         //Klick Function
         google.maps.event.addListener(singlecountry, 'click', function(event) {
-            
+            //var two_digit_key_arr = key.split('_');
+            //two_digit_active = two_digit_key_arr[1];
             map.setZoom(8);
-       
+            map.setCenter(region_center[key]);
                     
         });
    
@@ -150,7 +157,7 @@ function loadRegionPolgons(){
     ];
     region_01.push(region_01_1);
     region_borders['region_01'] = region_01;
-    region_center['region_01'] = '';
+    region_center['region_01'] = new google.maps.LatLng(51.174046,  13.734);
     
     //******************************************************************************    
     //PLZ Region 02
@@ -216,7 +223,7 @@ function loadRegionPolgons(){
     ];
     region_02.push(region_02_1);
     region_borders['region_02'] = region_02;
-    region_center['region_02'] = '';
+    region_center['region_02'] = new google.maps.LatLng(51.221, 14.614);
     
     //******************************************************************************    
     //PLZ Region 03
@@ -284,7 +291,7 @@ function loadRegionPolgons(){
     ];
     region_03.push(region_03_1);
     region_borders['region_03'] = region_03;
-    region_center['region_03'] = '';
+    region_center['region_03'] = new google.maps.LatLng(51.687, 14.122);
     
     //******************************************************************************    
     //PLZ Region 04
@@ -366,7 +373,7 @@ function loadRegionPolgons(){
     ];
     region_04.push(region_04_1);
     region_borders['region_04'] = region_04;
-    region_center['region_04'] = '';
+    region_center['region_04'] = new google.maps.LatLng(51.323, 12.767);
     
     //******************************************************************************    
     //PLZ Region 06
@@ -463,7 +470,7 @@ function loadRegionPolgons(){
     ];
     region_06.push(region_06_1);
     region_borders['region_06'] = region_06;
-    region_center['region_06'] = '';
+    region_center['region_06'] = new google.maps.LatLng(51.490, 11.627);
     
     //******************************************************************************    
     //PLZ Region 07
@@ -534,7 +541,7 @@ function loadRegionPolgons(){
     ];
     region_07.push(region_07_1);
     region_borders['region_07'] = region_07;
-    region_center['region_07'] = '';
+    region_center['region_07'] = new google.maps.LatLng(50.646, 11.729);
     
     //******************************************************************************    
     //PLZ Region 08
@@ -615,7 +622,7 @@ function loadRegionPolgons(){
     ];
     region_08.push(region_08_1);
     region_borders['region_08'] = region_08;
-    region_center['region_08'] = '';
+    region_center['region_08'] = new google.maps.LatLng(50.507, 12.456);
     
     //******************************************************************************    
     //PLZ Region 09
@@ -694,7 +701,7 @@ function loadRegionPolgons(){
     ];
     region_09.push(region_09_1);
     region_borders['region_09'] = region_09;
-    region_center['region_09'] = '';
+    region_center['region_09'] = new google.maps.LatLng(50.748, 13.099);
     
     //******************************************************************************    
     //PLZ Region 10
@@ -713,7 +720,7 @@ function loadRegionPolgons(){
     ];
     region_10.push(region_10_1);
     region_borders['region_10'] = region_10;
-    region_center['region_10'] = '';
+    region_center['region_10'] = new google.maps.LatLng(52.508, 13.406);
     
     //******************************************************************************    
     //PLZ Region 11
@@ -723,7 +730,7 @@ function loadRegionPolgons(){
     ];
     region_11.push(region_11_1);
     region_borders['region_11'] = region_11;
-    region_center['region_11'] = '';
+    region_center['region_11'] = new google.maps.LatLng(52.508, 13.406);
     
     //******************************************************************************    
     //PLZ Region 12
@@ -759,7 +766,7 @@ function loadRegionPolgons(){
     ];
     region_12.push(region_12_1);
     region_borders['region_12'] = region_12;
-    region_center['region_12'] = '';
+    region_center['region_12'] = new google.maps.LatLng(52.508, 13.406);
     
     //******************************************************************************    
     //PLZ Region 13
@@ -787,7 +794,7 @@ function loadRegionPolgons(){
     ];
     region_13.push(region_13_1);
     region_borders['region_13'] = region_13;
-    region_center['region_13'] = '';
+    region_center['region_13'] = new google.maps.LatLng(52.508, 13.406);
     
     //******************************************************************************    
     //PLZ Region 14
@@ -855,7 +862,7 @@ function loadRegionPolgons(){
     ];
     region_14.push(region_14_1);
     region_borders['region_14'] = region_14;
-    region_center['region_14'] = '';
+    region_center['region_14'] = new google.maps.LatLng(52.249, 12.815);
     
     //******************************************************************************    
     //PLZ Region 15
@@ -943,7 +950,7 @@ function loadRegionPolgons(){
     ];
     region_15.push(region_15_1);
     region_borders['region_15'] = region_15;
-    region_center['region_15'] = '';
+    region_center['region_15'] = new google.maps.LatLng(52.170, 13.937);
     
     //******************************************************************************    
     //PLZ Region 16
@@ -1044,7 +1051,7 @@ function loadRegionPolgons(){
     ];
     region_16.push(region_16_1);
     region_borders['region_16'] = region_16;
-    region_center['region_16'] = '';
+    region_center['region_16'] = new google.maps.LatLng(52.854, 13.112);
     
     //******************************************************************************    
     //PLZ Region 17
@@ -1172,7 +1179,7 @@ function loadRegionPolgons(){
     ];
     region_17.push(region_17_1);
     region_borders['region_17'] = region_17;
-    region_center['region_17'] = '';
+    region_center['region_17'] = new google.maps.LatLng(53.532, 13.311);
     
     //******************************************************************************    
     //PLZ Region 18
@@ -1376,7 +1383,7 @@ function loadRegionPolgons(){
     ];
     region_18.push(region_18_2);
     region_borders['region_18'] = region_18;
-    region_center['region_18'] = '';
+    region_center['region_18'] = new google.maps.LatLng(54.011, 12.255);
     
     //******************************************************************************    
     //PLZ Region 19
@@ -1458,7 +1465,7 @@ function loadRegionPolgons(){
     ];
     region_19.push(region_19_1);
     region_borders['region_19'] = region_19;
-    region_center['region_19'] = '';
+    region_center['region_19'] = new google.maps.LatLng(53.386, 11.473);
     
     //******************************************************************************    
     //PLZ Region 20
@@ -1483,7 +1490,7 @@ function loadRegionPolgons(){
     ];
     region_20.push(region_20_1);
     region_borders['region_20'] = region_20;
-    region_center['region_20'] = '';
+    region_center['region_20'] = new google.maps.LatLng(53.567, 9.902);
     
     //******************************************************************************    
     //PLZ Region 21
@@ -1579,7 +1586,7 @@ function loadRegionPolgons(){
     ];
     region_21.push(region_21_1);
     region_borders['region_21'] = region_21;
-    region_center['region_21'] = '';
+    region_center['region_21'] = new google.maps.LatLng(53.296, 10.095);
     
     //******************************************************************************    
     //PLZ Region 22
@@ -1632,7 +1639,7 @@ function loadRegionPolgons(){
     ];
     region_22.push(region_22_1);
     region_borders['region_22'] = region_22;
-    region_center['region_22'] = '';
+    region_center['region_22'] =  new google.maps.LatLng(53.567, 9.902);
     
     //******************************************************************************    
     //PLZ Region 23
@@ -1753,7 +1760,7 @@ function loadRegionPolgons(){
     ];
     region_23.push(region_23_1);
     region_borders['region_23'] = region_23;
-    region_center['region_23'] = '';
+    region_center['region_23'] = new google.maps.LatLng(53.882, 10.567);
     
     //******************************************************************************    
     //PLZ Region 24
@@ -1895,7 +1902,7 @@ function loadRegionPolgons(){
     ];
     region_24.push(region_24_1);
     region_borders['region_24'] = region_24;
-    region_center['region_24'] = '';
+    region_center['region_24'] = new google.maps.LatLng(54.236, 9.864);
     
     //******************************************************************************    
     //PLZ Region 25
@@ -2031,7 +2038,7 @@ function loadRegionPolgons(){
     ];
     region_25.push(region_25_1);
     region_borders['region_25'] = region_25;
-    region_center['region_25'] = '';
+    region_center['region_25'] = new google.maps.LatLng(54.030, 9,252);
     
     //******************************************************************************    
     //PLZ Region 26
@@ -2117,7 +2124,7 @@ function loadRegionPolgons(){
     ];
     region_26.push(region_26_1);
     region_borders['region_26'] = region_26;
-    region_center['region_26'] = '';
+    region_center['region_26'] = new google.maps.LatLng(53.195, 7.735);
     
     //******************************************************************************    
     //PLZ Region 27
@@ -2227,7 +2234,7 @@ function loadRegionPolgons(){
     ];
     region_27.push(region_27_1);
     region_borders['region_27'] = region_27;
-    region_center['region_27'] = '';
+    region_center['region_27'] = new google.maps.LatLng(53.190, 9.299);
     
     //******************************************************************************    
     //PLZ Region 28
@@ -2263,7 +2270,7 @@ function loadRegionPolgons(){
     ];
     region_28.push(region_28_1);
     region_borders['region_28'] = region_28;
-    region_center['region_28'] = '';
+    region_center['region_28'] = new google.maps.LatLng(53.059, 8.835);
     
     //******************************************************************************    
     //PLZ Region 29
@@ -2357,7 +2364,7 @@ function loadRegionPolgons(){
     ];
     region_29.push(region_29_1);
     region_borders['region_29'] = region_29;
-    region_center['region_29'] = '';
+    region_center['region_29'] = new google.maps.LatLng(52.794, 10.347);
     
     //******************************************************************************    
     //PLZ Region 30
@@ -2399,7 +2406,7 @@ function loadRegionPolgons(){
     ];
     region_30.push(region_30_1);
     region_borders['region_30'] = region_30;
-    region_center['region_30'] = '';
+    region_center['region_30'] = new google.maps.LatLng(52.289, 9.744);
     
     //******************************************************************************    
     //PLZ Region 31
@@ -2505,7 +2512,7 @@ function loadRegionPolgons(){
     ];
     region_31.push(region_31_1);
     region_borders['region_31'] = region_31;
-    region_center['region_31'] = '';
+    region_center['region_31'] = new google.maps.LatLng(52.11, 9.367);
     
     //******************************************************************************    
     //PLZ Region 32
@@ -2567,7 +2574,7 @@ function loadRegionPolgons(){
     ];
     region_32.push(region_32_1);
     region_borders['region_32'] = region_32;
-    region_center['region_32'] = '';
+    region_center['region_32'] = new google.maps.LatLng(52.109, 8.779);
     
     //******************************************************************************    
     //PLZ Region 33
@@ -2627,7 +2634,7 @@ function loadRegionPolgons(){
     ];
     region_33.push(region_33_1);
     region_borders['region_33'] = region_33;
-    region_center['region_33'] = '';
+    region_center['region_33'] = new google.maps.LatLng(51.688, 8.720);
     
     //******************************************************************************    
     //PLZ Region 34
@@ -2713,7 +2720,7 @@ function loadRegionPolgons(){
     ];
     region_34.push(region_34_1);
     region_borders['region_34'] = region_34;
-    region_center['region_34'] = '';
+    region_center['region_34'] = new google.maps.LatLng(51.199, 9.115);
     
     //******************************************************************************    
     //PLZ Region 35
@@ -2771,7 +2778,7 @@ function loadRegionPolgons(){
     ];
     region_35.push(region_35_1);
     region_borders['region_35'] = region_35;
-    region_center['region_35'] = '';
+    region_center['region_35'] = new google.maps.LatLng(50.655, 8.629);
     
     //******************************************************************************    
     //PLZ Region 36
@@ -2845,7 +2852,7 @@ function loadRegionPolgons(){
     ];
     region_36.push(region_36_1);
     region_borders['region_36'] = region_36;
-    region_center['region_36'] = '';
+    region_center['region_36'] = new google.maps.LatLng(50.622, 9.671);
     
     //******************************************************************************    
     //PLZ Region 37
@@ -2954,7 +2961,7 @@ function loadRegionPolgons(){
     ];
     region_37.push(region_37_1);
     region_borders['region_37'] = region_37;
-    region_center['region_37'] = '';
+    region_center['region_37'] = new google.maps.LatLng(51.504, 10.045);
     
     //******************************************************************************    
     //PLZ Region 38
@@ -3032,7 +3039,7 @@ function loadRegionPolgons(){
     ];
     region_38.push(region_38_1);
     region_borders['region_38'] = region_38;
-    region_center['region_38'] = '';
+    region_center['region_38'] = new google.maps.LatLng(52.003, 10.627);
     
     //******************************************************************************    
     //PLZ Region 39
@@ -3111,7 +3118,7 @@ function loadRegionPolgons(){
     ];
     region_39.push(region_39_1);
     region_borders['region_39'] = region_39;
-    region_center['region_39'] = '';
+    region_center['region_39'] = new google.maps.LatLng(52.336, 11.612);
     
     //******************************************************************************    
     //PLZ Region 40
@@ -3147,7 +3154,7 @@ function loadRegionPolgons(){
     ];
     region_40.push(region_40_1);
     region_borders['region_40'] = region_40;
-    region_center['region_40'] = '';
+    region_center['region_40'] = new google.maps.LatLng(51.218, 6.913);
     
     //******************************************************************************    
     //PLZ Region 41
@@ -3196,7 +3203,7 @@ function loadRegionPolgons(){
     ];
     region_41.push(region_41_1);
     region_borders['region_41'] = region_41;
-    region_center['region_41'] = '';
+    region_center['region_41'] = new google.maps.LatLng(51.102, 6.490);
     
     //******************************************************************************    
     //PLZ Region 42
@@ -3236,7 +3243,7 @@ function loadRegionPolgons(){
     ];
     region_42.push(region_42_1);
     region_borders['region_42'] = region_42;
-    region_center['region_42'] = '';
+    region_center['region_42'] = new google.maps.LatLng(51.165, 7.208);
     
     //******************************************************************************    
     //PLZ Region 44
@@ -3278,7 +3285,7 @@ function loadRegionPolgons(){
     ];
     region_44.push(region_44_1);
     region_borders['region_44'] = region_44;
-    region_center['region_44'] = '';
+    region_center['region_44'] = new google.maps.LatLng(51.522, 7.459);
     
     //******************************************************************************    
     //PLZ Region 45
@@ -3325,7 +3332,7 @@ function loadRegionPolgons(){
     ];
     region_45.push(region_45_1);
     region_borders['region_45'] = region_45;
-    region_center['region_45'] = '';
+    region_center['region_45'] = new google.maps.LatLng(51.578, 7.099);
     
     //******************************************************************************    
     //PLZ Region 46
@@ -3376,7 +3383,7 @@ function loadRegionPolgons(){
     ];
     region_46.push(region_46_1);
     region_borders['region_46'] = region_46;
-    region_center['region_46'] = '';
+    region_center['region_46'] = new google.maps.LatLng(51.732, 6.724);
     
     //******************************************************************************    
     //PLZ Region 47
@@ -3429,7 +3436,7 @@ function loadRegionPolgons(){
     ];
     region_47.push(region_47_1);
     region_borders['region_47'] = region_47;
-    region_center['region_47'] = '';
+    region_center['region_47'] = new google.maps.LatLng(51.428, 6.459);
     
     //******************************************************************************    
     //PLZ Region 48
@@ -3492,7 +3499,7 @@ function loadRegionPolgons(){
     ];
     region_48.push(region_48_1);
     region_borders['region_48'] = region_48;
-    region_center['region_48'] = '';
+    region_center['region_48'] = new google.maps.LatLng(52.095, 7.247);
     
     //******************************************************************************    
     //PLZ Region 49
@@ -3569,7 +3576,7 @@ function loadRegionPolgons(){
     ];
     region_49.push(region_49_1);
     region_borders['region_49'] = region_49;
-    region_center['region_49'] = '';
+    region_center['region_49'] = new google.maps.LatLng(52.544, 8.034);
     
     //******************************************************************************    
     //PLZ Region 50
@@ -3613,7 +3620,7 @@ function loadRegionPolgons(){
     ];
     region_50.push(region_50_1);
     region_borders['region_50'] = region_50;
-    region_center['region_50'] = '';
+    region_center['region_50'] = new google.maps.LatLng(50.842, 6.758);
     
     //******************************************************************************    
     //PLZ Region 51
@@ -3667,7 +3674,7 @@ function loadRegionPolgons(){
     ];
     region_51.push(region_51_1);
     region_borders['region_51'] = region_51;
-    region_center['region_51'] = '';
+    region_center['region_51'] = new google.maps.LatLng(51.014, 7.412);
     
     //******************************************************************************    
     //PLZ Region 52
@@ -3752,7 +3759,7 @@ function loadRegionPolgons(){
     ];
     region_52.push(region_52_1);
     region_borders['region_52'] = region_52;
-    region_center['region_52'] = '';
+    region_center['region_52'] = new google.maps.LatLng(50.801, 6.316);
     
     //******************************************************************************    
     //PLZ Region 53
@@ -3821,7 +3828,7 @@ function loadRegionPolgons(){
     ];
     region_53.push(region_53_1);
     region_borders['region_53'] = region_53;
-    region_center['region_53'] = '';
+    region_center['region_53'] = new google.maps.LatLng(50.527, 6.961);
     
     //******************************************************************************    
     //PLZ Region 54
@@ -3877,7 +3884,7 @@ function loadRegionPolgons(){
     ];
     region_54.push(region_54_1);
     region_borders['region_54'] = region_54;
-    region_center['region_54'] = '';
+    region_center['region_54'] = new google.maps.LatLng(49.945, 6.655);
     
     //******************************************************************************    
     //PLZ Region 55
@@ -3938,7 +3945,7 @@ function loadRegionPolgons(){
     ];
     region_55.push(region_55_1);
     region_borders['region_55'] = region_55;
-    region_center['region_55'] = '';
+    region_center['region_55'] = new google.maps.LatLng(49.825, 7.620);
     
     //******************************************************************************    
     //PLZ Region 56
@@ -4008,7 +4015,7 @@ function loadRegionPolgons(){
     ];
     region_56.push(region_56_1);
     region_borders['region_56'] = region_56;
-    region_center['region_56'] = '';
+    region_center['region_56'] = new google.maps.LatLng(50.241, 7.463);
     
     //******************************************************************************    
     //PLZ Region 57
@@ -4072,7 +4079,7 @@ function loadRegionPolgons(){
     ];
     region_57.push(region_57_1);
     region_borders['region_57'] = region_57;
-    region_center['region_57'] = '';
+    region_center['region_57'] = new google.maps.LatLng(50.952, 8.088);
     
     //******************************************************************************    
     //PLZ Region 58
@@ -4119,7 +4126,7 @@ function loadRegionPolgons(){
     ];
     region_58.push(region_58_1);
     region_borders['region_58'] = region_58;
-    region_center['region_58'] = '';
+    region_center['region_58'] =  new google.maps.LatLng(51.237, 7.634);
     
     //******************************************************************************    
     //PLZ Region 59
@@ -4187,7 +4194,7 @@ function loadRegionPolgons(){
     ];
     region_59.push(region_59_1);
     region_borders['region_59'] = region_59;
-    region_center['region_59'] = '';
+    region_center['region_59'] = new google.maps.LatLng(51.537, 8.133);
     
     //******************************************************************************    
     //PLZ Region 60
