@@ -36,7 +36,23 @@ $TCA['tx_googlefun_domain_model_item'] = array(
                 )
             )
         ),
-
+        'l18n_parent' => array(
+            'displayCond' => 'FIELD:sys_language_uid:>:0',
+            'exclude' => 1,
+            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
+            'config' => array(
+                'type' => 'select',
+                'items' => array(
+                    array('', 0),
+                ),
+                'foreign_table' => 'tx_googlefun_domain_model_item',
+                'foreign_table_where' => 'AND tx_googlefun_domain_model_item.uid=###REC_FIELD_l18n_parent### AND tx_googlefun_domain_model_item.sys_language_uid IN (-1,0)',
+            )
+        ),
+        'l18n_diffsource' => array(
+            'config' => array(
+                'type' => 'passthrough')
+        ),
         't3ver_label' => array(
             'displayCond' => 'FIELD:t3ver_label:REQ:true',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.versionLabel',
@@ -50,15 +66,6 @@ $TCA['tx_googlefun_domain_model_item'] = array(
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
             'config' => array(
                 'type' => 'check'
-            )
-        ),
-        'crdate' => array(
-            'exclude' => 0,
-            'label' => 'crdate',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim',
             )
         ),
         'gfun_plz' => array(
