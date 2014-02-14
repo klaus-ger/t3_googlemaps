@@ -50,6 +50,8 @@ function renderMainRegions(regionsWithItems){
                 
         //Klick Function
         google.maps.event.addListener(singlecountry, 'click', function(event) {
+            var one_digit_key_arr = key.split('_');
+            one_digit_active = one_digit_key_arr[1];
             map.setZoom(7);
             map.setCenter(mainregion_center[key]);
         });

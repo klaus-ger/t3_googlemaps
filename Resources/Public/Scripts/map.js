@@ -1,6 +1,7 @@
 var map;
 var one_digit_marker = [];
 var two_digit_marker = [];
+var one_digit_active;
 var styles = [{
     "stylers": [
     {
@@ -59,7 +60,7 @@ function initialize() {
     renderOneDigitMarkers();
     renderTwoDigitMarkers();
     renderMainRegions();
-    renderRegions();
+    //renderRegions();
     loadMarker();
     
    
@@ -89,6 +90,7 @@ function initialize() {
             for (i = 0; i<regionpolys.length; i++){
                 regionpolys[i].setVisible(false);
             }
+            
             //set one digti polys
             for (i = 0; i<mainregionpolys.length; i++){
                 mainregionpolys[i].setVisible(true);
@@ -113,11 +115,16 @@ function initialize() {
         
         // ZOOM LEVEL 7: show two digit PLZ area ********************************
         if (zoomLevel == 7) {
-            //remove two digit polys
-            for (i = 0; i<regionpolys.length; i++){
-                regionpolys[i].setVisible(true);
+            
+            //set the new active area
+            //remove all two-digit borders
+            for (var i = 0; i < regionpolys.length; i++ ) {
+                regionpolys[i].setMap(null);
             }
-            //set one digti polys
+            //now write the new poly with active color
+             renderRegions();
+             
+            //remove one digti polys
             for (i = 0; i<mainregionpolys.length; i++){
                 mainregionpolys[i].setVisible(false);
             }
@@ -185,11 +192,7 @@ function loadMarker() {
         dataType: "json",
  
         success: function(result) {
-            console.log(result);
-            
-            //result small
-
-    
+            //console.log(result);
             
             //one-digit-marker
             var markerImage = new google.maps.MarkerImage('typo3conf/ext/googlefun/Resources/Public/Images/static_marker/result1.png',
