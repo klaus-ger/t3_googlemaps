@@ -121,7 +121,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(49.68792755893104,8.699130236239128),
+        position: new google.maps.LatLng(49.863, 9.124),
         visible: true,
         id: 0,
         name: 0,
@@ -139,11 +139,11 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(48.24094397017384, 8.847198643896357),
+        position: new google.maps.LatLng(48.589, 9.325),
         visible: true,
         id: 0,
         name: 0,
-        title: 'PLZ Region 0',
+        title: 'PLZ Region 7',
         clickable : false
     });
                 
@@ -157,7 +157,7 @@ function renderOneDigitMarkers(){
             anchor: new google.maps.Point(32, 15)
         },
         map: map,
-        position: new google.maps.LatLng(48.01391473144322, 11.01076090976968),
+        position: new google.maps.LatLng(47.878, 11.555),
         visible: true,
         id: 0,
         name: 0,
