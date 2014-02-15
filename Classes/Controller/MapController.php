@@ -173,8 +173,35 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
         $regions[] = array('57', 2, 8.007, 50.832);
         $regions[] = array('58', 2, 7.634, 51.278);
         $regions[] = array('59', 2, 8.214, 51.394);
+        
+        $regions[] = array( '6', 1, 7.624, 49.400);
+        $regions[] = array('60', 2, 8.594, 50.042);
+        $regions[] = array('61', 2, 7.590, 50.937);
+        $regions[] = array('63', 2, 9.220, 50.061);
+        $regions[] = array('64', 2, 8.868, 49.691);
+        $regions[] = array('65', 2, 8.175, 50.214);
+        $regions[] = array('66', 2, 7.352, 49.264);
+        $regions[] = array('67', 2, 8.199, 49.372);
+        $regions[] = array('68', 2, 8.532, 49.411);
+        $regions[] = array('69', 2, 9.007, 49.404);
+        
+        $regions[] = array( '7', 1, 8.255, 47.922);
+        $regions[] = array('70', 2, 9.183, 48.650);
+        $regions[] = array('71', 2, 9.349, 48.879);
+        $regions[] = array('72', 2, 9.096, 48.260);
+        $regions[] = array('73', 2, 10.024, 48.855);
+        $regions[] = array('74', 2, 9.662, 49.239);
+        $regions[] = array('75', 2, 8.683, 48.828);
+        $regions[] = array('76', 2, 8.336, 48.869);
+        $regions[] = array('77', 2, 7.965, 48.377);
+        $regions[] = array('78', 2, 8.726, 47.914);
+        $regions[] = array('79', 2, 7.986, 47.707);
 
-
+        $regions[] = array( '8', 1, 10.067, 48.004);
+        
+        $regions[] = array( '9', 1, 12.305, 49.404);
+        
+        
         foreach ($regions as $region) {
             $DBregion = $this->regionRepository->findByRegionPlz($region[0]);
             // \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($DBregion);
