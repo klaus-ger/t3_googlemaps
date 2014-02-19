@@ -40,9 +40,10 @@ class ItemRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
      * @param string $plz The region type
      * @param int $storagePid The storage Pid
      */
-    public function findItemsByPLZ($plz, $storagePid) {
+    public function countItemsByPLZ($plz, $storagePid) {
         $query = $this->createQuery();
         $query->getQuerySettings()->setRespectStoragePage(FALSE);
+        $query->getQuerySettings()->setRespectSysLanguage(FALSE);
         $query->matching(
             //$query->logicalAnd(
              //   $query->equals('pid', $storagePid),
@@ -50,6 +51,26 @@ class ItemRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
            // )
         );
         return $query->execute()->count();
+    
+    }
+    
+        /**
+     * Find item By PLZ and storage PID
+     * 
+     * @param string $plz The region type
+     * @param int $storagePid The storage Pid
+     */
+    public function findItemsByPLZ($plz, $storagePid) {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(FALSE);
+        $query->getQuerySettings()->setRespectSysLanguage(FALSE);
+        $query->matching(
+            //$query->logicalAnd(
+             //   $query->equals('pid', $storagePid),
+                $query->like('gfunPlz', $plz . '%')
+           // )
+        );
+        return $query->execute();
     
     }
 

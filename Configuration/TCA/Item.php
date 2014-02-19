@@ -23,7 +23,7 @@ $TCA['tx_googlefun_domain_model_item'] = array(
         '1' => array('showitem' => '')
     ),
     'columns' => array(
-        'sys_language_uid' => array(
+         'sys_language_uid' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.language',
             'config' => array(
@@ -99,7 +99,7 @@ $TCA['tx_googlefun_domain_model_item'] = array(
             'exclude' => 0,
             'label' => 'Field 1',
             'config' => array(
-                'type' => 'check'
+                'type' => 'input'
             )
         ),
         
@@ -107,7 +107,7 @@ $TCA['tx_googlefun_domain_model_item'] = array(
             'exclude' => 0,
             'label' => 'Field 2',
             'config' => array(
-                'type' => 'check'
+                'type' => 'input'
             )
         ),
         
@@ -115,7 +115,7 @@ $TCA['tx_googlefun_domain_model_item'] = array(
             'exclude' => 0,
             'label' => 'Field 3',
             'config' => array(
-                'type' => 'check'
+                'type' => 'input'
             )
         ),
         
