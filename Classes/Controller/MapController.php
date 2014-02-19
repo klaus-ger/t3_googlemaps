@@ -60,7 +60,12 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
     public function indexAction() {
         
         $this->writeRegions();
-       
+       $items[1] = $this->itemRepository->findByUid(1);
+     //   $test = $items[1]->getUid();
+       \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($items);
+       $reg[1] = $this->regionRepository->findByUid(1);
+    //  $test = $reg[1]->getUid();
+       \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($reg);
     }
 
     /**
@@ -74,17 +79,21 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
         $twoDigitRegions = $this->regionRepository->findByRegionType(2, $storagePid);
 
         foreach ($oneDigitRegions as $oneDR) {
-            $countOneItems = $this->itemRepository->findItemsByPLZ($oneDR->getRegionPlz(), $storagePid);
+            $countOneItems = $this->itemRepository->countItemsByPLZ($oneDR->getRegionPlz(), $storagePid);
             // if ($countOneItems > 0) {
             $marker['mainregions'][$oneDR->getUid()]['plz'] = $oneDR->getRegionPlz();
             $marker['mainregions'][$oneDR->getUid()]['long'] = $oneDR->getRegionLong();
             $marker['mainregions'][$oneDR->getUid()]['lat'] = $oneDR->getRegionLat();
             $marker['mainregions'][$oneDR->getUid()]['items'] = $countOneItems;
+            
+            //if($countOneItems < )
+            $marker['rangemainregion']['min'] = 0;
+            $marker['rangemainregi0n']['max'] = 0;
             // }
         }
 
         foreach ($twoDigitRegions as $twoDR) {
-            $countTwoItems = $this->itemRepository->findItemsByPLZ($twoDR->getRegionPlz(), $storagePid);
+            $countTwoItems = $this->itemRepository->countItemsByPLZ($twoDR->getRegionPlz(), $storagePid);
             // TEMORARY DISABLED TO SHOW ALL MARKER ON MAP
             //if ($countTwoItems > 0) {
             $marker['regions'][$twoDR->getUid()]['plz'] = $twoDR->getRegionPlz();
@@ -99,6 +108,43 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
         return json_encode($marker);
     }
 
+     /**
+     * Find Items by Ajax Action
+     */
+    public function findItemsByAjaxAction() {
+        if ($this->request->hasArgument('storagePid')) {
+            $storagePid = $this->request->getArgument('storagePid');
+        }
+        if ($this->request->hasArgument('one_digit_active')) {
+            $oneDigit = $this->request->getArgument('one_digit_active');
+        }
+        if ($this->request->hasArgument('two_digit_active')) {
+            $twoDigit = $this->request->getArgument('two_digit_active');
+        }
+        
+        $plz = $oneDigit;
+        if($twoDigit > 0) { 
+            $plz = $twoDigit;
+        }
+        
+        $items = $this->itemRepository->findItemsByPLZ($plz, $storagePid);
+        //$items[1] = $this->itemRepository->findByUid(1);
+        $li = 1;
+        
+        foreach($items as $item) {
+            $itemAray['items'][$li]['gfunPlz'] = $item->getGfunPlz();
+            $itemAray['items'][$li]['gfunTitle'] = $item->getGfunTitle();
+            $itemAray['items'][$li]['gfunText'] = $item->getGfunText();
+            $li ++;
+        }
+        $itemAray['summary']['items'] = count($items);
+        $itemAray['summary']['plz'] = str_pad($plz, 5, 'X', STR_PAD_RIGHT);
+        
+        return json_encode($itemAray);
+        
+    }
+    
+    
     /*
      * Write regions
      */
@@ -198,8 +244,28 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
         $regions[] = array('79', 2, 7.986, 47.707);
 
         $regions[] = array( '8', 1, 10.067, 48.004);
+        $regions[] = array('80', 2, 11.470, 48.080);
+        $regions[] = array('81', 2, 11.687, 48.103);
+        $regions[] = array('82', 2, 11.164, 47.699);
+        $regions[] = array('83', 2, 11.676, 47.681);
+        $regions[] = array('84', 2, 12.555, 48.284);
+        $regions[] = array('85', 2, 11.639, 48.317);
+        $regions[] = array('86', 2, 10.915, 48.610);
+        $regions[] = array('87', 2, 10.386, 47.654);
+        $regions[] = array('88', 2, 9.561, 47.839);
+        $regions[] = array('89', 2, 10.084, 48.389);
         
         $regions[] = array( '9', 1, 12.305, 49.404);
+        $regions[] = array('90', 2, 11.306, 49.360);
+        $regions[] = array('91', 2, 10.887, 49.099);
+        $regions[] = array('92', 2, 11.900, 49.414);
+        $regions[] = array('93', 2, 12.010, 48.982);
+        $regions[] = array('94', 2, 13.295, 48.710);
+        $regions[] = array('95', 2, 12.074, 49.990);
+        $regions[] = array('96', 2, 10.985, 50.040);
+        $regions[] = array('97', 2, 9.862, 49.825);
+        $regions[] = array('98', 2, 10.724, 50.491);
+        $regions[] = array('99', 2, 10.919, 51.024);
         
         
         foreach ($regions as $region) {

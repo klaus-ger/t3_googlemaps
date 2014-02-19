@@ -20,7 +20,7 @@ if (!defined('TYPO3_MODE'))
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_googlefun_domain_model_item');
 $TCA['tx_googlefun_domain_model_item'] = array(
     'ctrl' => array(
-        'title' => 'Map Item',
+        'title' => 'Items',
         'label' => 'gfun_plz',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',

@@ -7,12 +7,14 @@ if (!defined ('TYPO3_MODE'))  die ('Access denied.');
 	array(
 		
                 'Map'   =>  ' index
-                            , findMarkerByAjax'
+                            , findMarkerByAjax
+                            , findItemsByAjax'
 	 ),
 
     array ( 
                 'Map'   =>  ' index
-                            , findMarkerByAjax'
+                            , findMarkerByAjax
+                            , findItemsByAjax'
             )
 );
 
